@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 import BGImg from "../assets/bg8.jpg";
 import HeaderImage from "../assets/headerImg5.jpg";
 import { landingFooterLinks, landingHeaderLinks } from "../helper/data";
@@ -35,26 +36,29 @@ const LandingPage = () => {
             className="h-52 w-40 object-cover"
             src={HeaderImage}
             alt="image"
-        />
+          />
         </div>
 
         {/* side menu */}
         <motion.div
-        initial={{x: open ? 400:0}}
-        animate={{x:open ? 0:400}}
-        transition={{duration: 0.3}}
-        className={`
+          initial={{ x: open ? 600 : 0 }}
+          animate={{ x: open ? 0 : 600 }}
+          transition={{ duration: 0.5 }}
+          className={`
             h-screen w-[80%] sm:hidden fixed top-0 right-0 bg-white z-50 rounded-lg`}
         >
-            {
-                landingHeaderLinks.map((items) => (
-                    <>
-                    <li key={items.id} className="list-none pl-4 py-1  font-bold cursor-pointer hover:bg-gray-100 hover:rounded-lg">
-                        <a href={items.link}>{items.title}</a>
-                    </li>
-                    </>
-                ))
-            }
+          {landingHeaderLinks.map((item) => (
+            <>
+              <Link
+                className="flex font-bold text-gray-500 text-lg pl-4 py-1 
+                cursor-pointer hover:bg-gray-100 hover:rounded-lg"
+                key={item.id}
+                to={item.link}
+              >
+                {item.title}
+              </Link>
+            </>
+          ))}
         </motion.div>
 
         {/* hero */}
