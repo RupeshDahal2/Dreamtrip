@@ -43,7 +43,7 @@ const LandingPage = () => {
         <motion.div
           initial={{ x: open ? 600 : 0 }}
           animate={{ x: open ? 0 : 600 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className={`
             h-screen w-[80%] sm:hidden fixed top-0 right-0 bg-white z-50 rounded-lg`}
         >
