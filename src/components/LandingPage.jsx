@@ -29,11 +29,25 @@ const LandingPage = () => {
               setOpen(!open);
             }}
           />
+          <h1
+            className="font-bold text-yellow-600 text-3xl hidden md:flex lg:flex"
+            >Explore.</h1>
+            {/*navigation bar items*/}
+            <div className="ml-auto">
+              <div className=" items-center hidden md:flex gap-24">
+            {landingHeaderLinks.slice(0,4).map((item)=>(
+              <>
+              <li className="list-none text-white text-2xl hover:border-b-4 border-yellow-400 duration-200 cursor-pointer">{item.title}</li>
+              </>
+            ))}
+            </div> </div>
+            
+            
           <img
             style={{
               clipPath: "polygon(0 0, 100% 0, 100% 90%, 75% 100%, 0 50%)",
             }}
-            className="h-52 w-40 object-cover"
+            className="h-52 w-40 object-cover ml-auto"
             src={HeaderImage}
             alt="image"
           />
@@ -43,15 +57,15 @@ const LandingPage = () => {
         <motion.div
           initial={{ x: open ? 600 : 0 }}
           animate={{ x: open ? 0 : 600 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className={`
             h-screen w-[80%] sm:hidden fixed top-0 right-0 bg-white z-50 rounded-lg`}
         >
           {landingHeaderLinks.map((item) => (
             <>
               <Link
-                className="flex font-bold text-gray-500 text-lg pl-4 py-1 
-                cursor-pointer hover:bg-gray-100 hover:rounded-lg"
+                className="flex font-bold text-black-500 text-lg pl-4 py-1 
+                cursor-pointer hover:bg-gray-400 hover:rounded-lg"
                 key={item.id}
                 to={item.link}
               >
@@ -64,7 +78,7 @@ const LandingPage = () => {
         {/* hero */}
         <div className="w-full text-center text-white">
           <p className="text-lg font-bold md:text-xl lg:text-2xl bg-gradient-to-b from-gray-400 to-gray-100 text-transparent bg-clip-text">
-            The Country of Himalays
+            The Country of Himalayas
           </p>
           <h1
             className="font-bold text-7xl md:text-8xl lg:text-9xl"
@@ -84,12 +98,12 @@ const LandingPage = () => {
           </div>
           {/* second side */}
           <div className="h-full w-full flex items-end justify-end">
-            <div className="h-20 w-full items-center flex gap-4 flex-wrap pl-2 backdrop-blur-sm">
+            <div className="h-20 w-full items-center flex gap-4 flex-wrap pl-2 backdrop-blur-sm ">
               {landingFooterLinks.map((link) => (
                 <>
                   <li
                     key={link.id}
-                    className="text-white list-none hover:border-b-4 border-yellow-400 "
+                    className="text-white list-none hover:border-b-4 border-yellow-400 md:ml-14"
                   >
                     <a href={link.link}>{link.title}</a>
                   </li>
@@ -98,7 +112,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </>
   );
 };
