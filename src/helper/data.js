@@ -38,7 +38,7 @@ export const landingHeaderLinks = [
   },
   {
     id: "3",
-    title: "sale",
+    title: "Sale",
     link: "#",
   },
   {
